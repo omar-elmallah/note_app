@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Note Taking App</title>
+</head>
+<body>
+    <h1>📝 Write a Note</h1>
+    <form action="/" method="post">
+        <textarea name="content" rows="4" cols="50" placeholder="Write your note here..."></textarea><br>
+        <button type="submit">Save Note</button>
+    </form>
+
+    <h2>📋 Your Notes</h2>
+    {% for note in notes %}
+        <div>
+            <p>🕒 {{ note['created_at'] }}</p>
+            <p>📌 {{ note['content'] }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+</body>
+</html>
