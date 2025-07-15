@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve Flask Note App
+After=network.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/home/ec2-user/note-app
+Environment="PATH=/home/ec2-user/note-app/venv/bin"
+ExecStart=/home/ec2-user/note-app/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:80 app:app
+
+[Install]
+WantedBy=multi-user.target
